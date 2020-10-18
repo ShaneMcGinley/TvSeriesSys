@@ -39,8 +39,8 @@ namespace TvSeries
         {
             using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
             {
-                //POST with server generated id
-                await client.Documents.PostAsync("{\"name\":\"Daniel\"}");
+                //POST with server generated id & Rev
+                await client.Documents.PostAsync("{\"title\": \"" + TitleText.Text + "\", \"creator\":\"" + CreatorTxt.Text + "\",\"stars\":\"" + StarsTxt.Text + "\",\"seasons\":\"" + SeasonsTxt.Text + "\",\"mpa_rating\":\"" + MPARatingTxt.Text + "\",\"imbd_rating\":\"" + IMBDRatingTxt.Text + "/10\"}");
             }
         }
 

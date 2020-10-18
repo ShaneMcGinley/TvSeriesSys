@@ -7,11 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="example" HorizontalAlignment="Left" Height="131" Margin="147,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="example" HorizontalAlignment="Left" Height="131" Margin="151,251,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
         <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="500,159,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="DeleteButton_Click"/>
         <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="451,78,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="UpdateButton_Click"/>
-        <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="190,64,0,0" VerticalAlignment="Top" Width="93" Height="40" Click="CreateButton_Click"/>
-        <Button x:Name="ReadButton" Content="Read" HorizontalAlignment="Left" Margin="43,124,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.12,-0.05" Height="31" Click="ReadButton_Click"/>
+        <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="245,32,0,0" VerticalAlignment="Top" Width="93" Height="40" Click="CreateButton_Click" RenderTransformOrigin="1.129,-0.325"/>
+        <Button x:Name="ReadButton" Content="Read" HorizontalAlignment="Left" Margin="37,251,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.12,-0.05" Height="31" Click="ReadButton_Click"/>
+        <TextBox x:Name="TitleText" HorizontalAlignment="Left" Height="26" Margin="93,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <Label x:Name="TvSeriesTitle" Content="Title:" HorizontalAlignment="Left" Margin="15,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <TextBox x:Name="CreatorTxt" HorizontalAlignment="Left" Height="26" Margin="93,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="StarsTxt" HorizontalAlignment="Left" Height="26" Margin="93,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="SeasonsTxt" HorizontalAlignment="Left" Height="26" Margin="93,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="MPARatingTxt" HorizontalAlignment="Left" Height="26" Margin="93,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="IMBDRatingTxt" HorizontalAlignment="Left" Height="26" Margin="93,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <Label x:Name="TvSeriesCreator" Content="Creator:" HorizontalAlignment="Left" Margin="15,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <Label x:Name="TvSeriesStars" Content="Stars:" HorizontalAlignment="Left" Margin="15,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <Label x:Name="TvSeriesSeasons" Content="Seasons:" HorizontalAlignment="Left" Margin="15,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <Label x:Name="TvSeriesMpaRating" Content="MPA Rating:" HorizontalAlignment="Left" Margin="15,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <Label x:Name="TvSeriesIMBDRating" Content="IMBD Rating:" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
 
     </Grid>
 </Window>
