@@ -1,4 +1,6 @@
 ﻿using MyCouch;
+using MyCouch.Net;
+using MyCouch.Requests;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,10 +11,28 @@ namespace TvSeries
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {  
+    {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void ReadButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var store = new MyCouchStore("http://admin:admin@localhost:5984", "tv-series"))
+            {
+                //Get hardcoded document ID.
+                var retrieved = await store.GetByIdAsync("b93670d06205d405faf05d944a001cc0");
+
+                example.Text = retrieved;
+
+                /* using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
+                {
+
+                }
+
+                */
+            }
         }
 
         private async void CreateButton_Click(object sender, RoutedEventArgs e)
@@ -40,9 +60,6 @@ namespace TvSeries
                 //Delete a document
                 await client.Documents.DeleteAsync("e4862b8c65a4677d4f4fa3d4cf002228", "2-9b42031d85a6c397b4f2d51a4b8698ec");
 
-                //Read a document - Not yet working
-                example.Text = Convert.ToString(await client.Documents.GetAsync("e4862b8c65a4677d4f4fa3d4cf00755e"));
-
                 //PUT for client generated id
                 //await client.Documents.PutAsync("e4862b8c65a4677d4f4fa3d4cf002228", "{\"name\":\"Donald Trump\"}");
 
@@ -58,5 +75,7 @@ namespace TvSeries
             }
 
         }
+
     }
 }
+
