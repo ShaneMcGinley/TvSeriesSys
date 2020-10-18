@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="example" HorizontalAlignment="Left" Height="131" Margin="147,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="500,159,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="Button_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="500,159,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="DeleteButton_Click"/>
         <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="451,78,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="UpdateButton_Click"/>
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="190,64,0,0" VerticalAlignment="Top" Width="93" Height="40" Click="CreateButton_Click"/>
 
