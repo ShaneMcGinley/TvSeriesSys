@@ -22,9 +22,9 @@ namespace TvSeries
             using (var store = new MyCouchStore("http://admin:admin@localhost:5984", "tv-series"))
             {
                 //Get hardcoded document ID.
-                var retrieved = await store.GetByIdAsync("b93670d06205d405faf05d944a001cc0");
+                var retrieved = await store.GetByIdAsync(SearchIDTxt.Text);
 
-                example.Text = retrieved;
+                ReadTxt.Text = retrieved;  
 
                 /* using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
                 {
@@ -40,7 +40,8 @@ namespace TvSeries
             using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
             {
                 //POST with server generated id & Rev
-                await client.Documents.PostAsync("{\"title\": \"" + TitleText.Text + "\", \"creator\":\"" + CreatorTxt.Text + "\",\"stars\":\"" + StarsTxt.Text + "\",\"seasons\":\"" + SeasonsTxt.Text + "\",\"mpa_rating\":\"" + MPARatingTxt.Text + "\",\"imbd_rating\":\"" + IMBDRatingTxt.Text + "/10\"}");
+                await client.Documents.PostAsync("{\"title\": \"" + TitleText.Text + "\", \"creator\":\"" + CreatorTxt.Text + "\",\"stars\":\"" + StarsTxt.Text + 
+                    "\",\"seasons\":\"" + SeasonsTxt.Text + "\",\"mpa_rating\":\"" + MPARatingTxt.Text + "\",\"imbd_rating\":\"" + IMBDRatingTxt.Text + "/10\"}");
             }
         }
 
@@ -55,10 +56,15 @@ namespace TvSeries
 
         private async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
+            using (var store = new MyCouchStore("http://admin:admin@localhost:5984", "tv-series"))
             {
                 //Delete a document
-                await client.Documents.DeleteAsync("e4862b8c65a4677d4f4fa3d4cf002228", "2-9b42031d85a6c397b4f2d51a4b8698ec");
+                //await client.Documents.DeleteAsync("e4862b8c65a4677d4f4fa3d4cf002228", "2-9b42031d85a6c397b4f2d51a4b8698ec");
+
+                await store.DeleteAsync(SearchIDTxt.Text);
+
+                SearchIDTxt.Text = "";
+                ReadTxt.Text = "";
 
                 //PUT for client generated id
                 //await client.Documents.PutAsync("e4862b8c65a4677d4f4fa3d4cf002228", "{\"name\":\"Donald Trump\"}");
