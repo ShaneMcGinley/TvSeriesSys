@@ -2,6 +2,7 @@
 using MyCouch.Net;
 using MyCouch.Requests;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -24,7 +25,18 @@ namespace TvSeries
                 //Get hardcoded document ID.
                 var retrieved = await store.GetByIdAsync(SearchIDTxt.Text);
 
-                ReadTxt.Text = retrieved;  
+                ReadTxt.Text = retrieved;
+
+                ReadTxt.Text = ReadTxt.Text.Replace(",", "," + System.Environment.NewLine + "    ");
+                ReadTxt.Text = ReadTxt.Text.Replace("{", "{" + System.Environment.NewLine + "    ");
+                ReadTxt.Text = ReadTxt.Text.Replace("}", System.Environment.NewLine + "}");
+                ReadTxt.Text = ReadTxt.Text.Replace(":", ": ");
+                ReadTxt.Text = ReadTxt.Text.Replace("[", " [" + System.Environment.NewLine + "    ");
+                ReadTxt.Text = ReadTxt.Text.Replace("]", System.Environment.NewLine + "    " +  "]");
+
+
+
+
 
                 /* using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
                 {

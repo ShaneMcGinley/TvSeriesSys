@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="ReadTxt" HorizontalAlignment="Left" Height="177" Margin="392,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" IsEnabled="False"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="621,266,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="DeleteButton_Click"/>
-        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="415,270,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="UpdateButton_Click"/>
+        <TextBox x:Name="ReadTxt" HorizontalAlignment="Left" Height="243" Margin="392,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" IsEnabled="False"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="620,332,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="DeleteButton_Click"/>
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="415,332,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="UpdateButton_Click"/>
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="133,208,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="CreateButton_Click" RenderTransformOrigin="1.129,-0.325"/>
         <Button x:Name="ReadButton" Content="Search" HorizontalAlignment="Left" Margin="661,30,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.12,-0.05" Height="30" Click="ReadButton_Click"/>
         <TextBox x:Name="TitleText" HorizontalAlignment="Left" Height="26" Margin="93,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
