@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="ReadTxt" HorizontalAlignment="Left" Height="243" Margin="392,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" IsEnabled="False"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="620,332,0,0" VerticalAlignment="Top" Width="98" Height="39" Click="DeleteButton_Click"/>
-        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="415,332,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="UpdateButton_Click"/>
+        <TextBox x:Name="ReadTxt" HorizontalAlignment="Left" Height="243" Margin="348,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="683,132,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="DeleteButton_Click"/>
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="683,80,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="UpdateButton_Click" RenderTransformOrigin="0.738,0.533"/>
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="133,208,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="CreateButton_Click" RenderTransformOrigin="1.129,-0.325"/>
-        <Button x:Name="ReadButton" Content="Search" HorizontalAlignment="Left" Margin="661,30,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.12,-0.05" Height="30" Click="ReadButton_Click"/>
+        <Button x:Name="ReadButton" Content="Search" HorizontalAlignment="Left" Margin="683,32,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.12,-0.05" Height="30" Click="ReadButton_Click"/>
         <TextBox x:Name="TitleText" HorizontalAlignment="Left" Height="26" Margin="93,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
         <Label x:Name="TvSeriesTitle" Content="Title:" HorizontalAlignment="Left" Margin="15,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
         <TextBox x:Name="CreatorTxt" HorizontalAlignment="Left" Height="26" Margin="93,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
@@ -24,8 +24,9 @@
         <Label x:Name="TvSeriesSeasons" Content="Seasons:" HorizontalAlignment="Left" Margin="15,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
         <Label x:Name="TvSeriesMpaRating" Content="MPA Rating:" HorizontalAlignment="Left" Margin="15,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
         <Label x:Name="TvSeriesIMBDRating" Content="IMBD Rating:" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
-        <TextBox x:Name="SearchIDTxt" HorizontalAlignment="Left" Height="26" Margin="392,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227"/>
-        <Label x:Name="TvSeriesTitle_Copy" Content="Enter ID:" HorizontalAlignment="Left" Margin="325,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <TextBox x:Name="SearchIDTxt" HorizontalAlignment="Left" Height="26" Margin="348,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298"/>
+        <Label x:Name="TvSeriesTitle_Copy" Content="Enter ID:" HorizontalAlignment="Left" Margin="288,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
+        <Button x:Name="ClearButton" Content="Clear All" HorizontalAlignment="Left" Margin="683,218,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.013,-0.25" Height="30" Click="ClearButton_Click"/>
 
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using MyCouch;
 using MyCouch.Net;
 using MyCouch.Requests;
+using MyCouch.Responses;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -34,16 +35,7 @@ namespace TvSeries
                 ReadTxt.Text = ReadTxt.Text.Replace("[", " [" + System.Environment.NewLine + "    ");
                 ReadTxt.Text = ReadTxt.Text.Replace("]", System.Environment.NewLine + "    " +  "]");
 
-
-
-
-
-                /* using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
-                {
-
-                }
-
-                */
+                SearchIDTxt.IsEnabled = false;
             }
         }
 
@@ -54,6 +46,13 @@ namespace TvSeries
                 //POST with server generated id & Rev
                 await client.Documents.PostAsync("{\"title\": \"" + TitleText.Text + "\", \"creator\":\"" + CreatorTxt.Text + "\",\"stars\":\"" + StarsTxt.Text + 
                     "\",\"seasons\":\"" + SeasonsTxt.Text + "\",\"mpa_rating\":\"" + MPARatingTxt.Text + "\",\"imbd_rating\":\"" + IMBDRatingTxt.Text + "/10\"}");
+
+                TitleText.Text = "";
+                CreatorTxt.Text = "";
+                StarsTxt.Text = "";
+                SeasonsTxt.Text = "";
+                MPARatingTxt.Text = "";
+                IMBDRatingTxt.Text = "";
             }
         }
 
@@ -62,7 +61,8 @@ namespace TvSeries
             using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
             {
                 //PUT for updates
-                await client.Documents.PutAsync("e4862b8c65a4677d4f4fa3d4cf002228", "1-6824e4a536fdf83a246/eca26b943dfe0", "{\"name\":\"Daniel Wertheim\"}");
+
+                await client.Documents.PutAsync(SearchIDTxt.Text, ReadTxt.Text);
             }
         }
 
@@ -71,29 +71,28 @@ namespace TvSeries
             using (var store = new MyCouchStore("http://admin:admin@localhost:5984", "tv-series"))
             {
                 //Delete a document
-                //await client.Documents.DeleteAsync("e4862b8c65a4677d4f4fa3d4cf002228", "2-9b42031d85a6c397b4f2d51a4b8698ec");
 
                 await store.DeleteAsync(SearchIDTxt.Text);
 
                 SearchIDTxt.Text = "";
                 ReadTxt.Text = "";
-
-                //PUT for client generated id
-                //await client.Documents.PutAsync("e4862b8c65a4677d4f4fa3d4cf002228", "{\"name\":\"Donald Trump\"}");
-
-                /*//PUT for updates with _rev in JSON
-                await client.Documents.PutAsync("someId", "{\"_rev\": \"docRevision\", \"name\":\"Daniel Wertheim\"}");
-
-                *//*//Using entities
-                var me = new Person { Id = "SomeId", Name = "Daniel" };
-                await client.Entities.PutAsync(me);*//*
-
-                //Using anonymous entities
-                await client.Entities.PostAsync(new { Name = "Daniel" });*/
+                SearchIDTxt.IsEnabled = true;
             }
 
         }
 
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchIDTxt.Text = "";
+            SearchIDTxt.IsEnabled = true;
+            ReadTxt.Text = "";
+            TitleText.Text = "";
+            CreatorTxt.Text = "";
+            StarsTxt.Text = "";
+            SeasonsTxt.Text = "";
+            MPARatingTxt.Text = "";
+            IMBDRatingTxt.Text = "";
+        }
     }
 }
 
