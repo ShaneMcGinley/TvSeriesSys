@@ -1,10 +1,6 @@
 ﻿using MyCouch;
-using MyCouch.Net;
 using MyCouch.Requests;
 using MyCouch.Responses;
-using System;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace TvSeries
@@ -17,6 +13,19 @@ namespace TvSeries
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
+            {
+                var personQuery = new QueryViewRequest("series", "CountNoTvSeries").Configure(query2 => query2
+                .Reduce(false));
+                ViewQueryResponse result2 = await client.Views.QueryAsync(personQuery);
+
+                NoTvSeriesTxt.Text = result2.RowCount.ToString();
+            }
         }
 
         private async void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -53,6 +62,12 @@ namespace TvSeries
                 SeasonsTxt.Text = "";
                 MPARatingTxt.Text = "";
                 IMBDRatingTxt.Text = "";
+
+                var personQuery = new QueryViewRequest("series", "CountNoTvSeries").Configure(query2 => query2
+                .Reduce(false));
+                ViewQueryResponse result2 = await client.Views.QueryAsync(personQuery);
+
+                NoTvSeriesTxt.Text = result2.RowCount.ToString();
             }
         }
 
@@ -63,6 +78,10 @@ namespace TvSeries
                 //PUT for updates
 
                 await client.Documents.PutAsync(SearchIDTxt.Text, ReadTxt.Text);
+
+                ReadTxt.Clear();
+
+                SearchIDTxt.IsEnabled = true;
             }
         }
 
@@ -77,6 +96,15 @@ namespace TvSeries
                 SearchIDTxt.Text = "";
                 ReadTxt.Text = "";
                 SearchIDTxt.IsEnabled = true;
+            }
+
+            using (var client = new MyCouchClient("http://admin:admin@localhost:5984", "tv-series"))
+            {
+                var personQuery = new QueryViewRequest("series", "CountNoTvSeries").Configure(query2 => query2
+                .Reduce(false));
+                ViewQueryResponse result2 = await client.Views.QueryAsync(personQuery);
+
+                NoTvSeriesTxt.Text = result2.RowCount.ToString();
             }
 
         }

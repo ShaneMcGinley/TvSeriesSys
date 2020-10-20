@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TvSeries"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TV Series" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="ReadTxt" HorizontalAlignment="Left" Height="243" Margin="348,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298"/>
         <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="683,132,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="DeleteButton_Click"/>
@@ -27,6 +27,8 @@
         <TextBox x:Name="SearchIDTxt" HorizontalAlignment="Left" Height="26" Margin="348,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298"/>
         <Label x:Name="TvSeriesTitle_Copy" Content="Enter ID:" HorizontalAlignment="Left" Margin="288,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423"/>
         <Button x:Name="ClearButton" Content="Clear All" HorizontalAlignment="Left" Margin="683,218,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.013,-0.25" Height="30" Click="ClearButton_Click"/>
+        <Label x:Name="TvSeriesIMBDRating_Copy" Content="Show Number &#xD;&#xA;of Tv Series:" HorizontalAlignment="Left" Margin="15,295,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.59,0.423" Height="50" Width="113"/>
+        <TextBox x:Name="NoTvSeriesTxt" HorizontalAlignment="Left" Height="26" Margin="133,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84"/>
 
     </Grid>
 </Window>
