@@ -63,6 +63,7 @@ namespace TvSeries
                 ReadTxt.Text = ReadTxt.Text.Replace("]", System.Environment.NewLine + "    " +  "]");
 
                 SearchIDTxt.IsEnabled = false;
+                ReadButton.IsEnabled = false;
             }
         }
 
@@ -74,7 +75,7 @@ namespace TvSeries
                 await client.Documents.PostAsync("{\"title\": \"" + TitleText.Text + "\", \"creator\":\"" + CreatorTxt.Text + "\",\"stars\":\"" + StarsTxt.Text + 
                     "\",\"seasons\":\"" + SeasonsTxt.Text + "\",\"mpa_rating\":\"" + MPARatingTxt.Text + "\",\"imbd_rating\":\"" + IMBDRatingTxt.Text + "/10\"}");
 
-                MessageBox.Show("Document Successfully Created", "Tv-Series");
+                MessageBox.Show("Document Successfully Created", "TV-Series", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // Clears all text boxes when a document is created.
                 TitleText.Clear();
@@ -101,11 +102,12 @@ namespace TvSeries
 
                 await client.Documents.PutAsync(SearchIDTxt.Text, ReadTxt.Text);
 
-                MessageBox.Show("Document Successfully Updated", "Tv-Series");
-
                 ReadTxt.Clear();
 
                 SearchIDTxt.IsEnabled = true;
+                ReadButton.IsEnabled = true;
+
+                MessageBox.Show("Document Successfully Updated", "TV-Series", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -117,11 +119,11 @@ namespace TvSeries
 
                 await store.DeleteAsync(SearchIDTxt.Text);
 
-                MessageBox.Show("Document Successfully Deleted", "Tv-Series");
-
-                SearchIDTxt.Text = "";
-                ReadTxt.Text = "";
+                SearchIDTxt.Clear();
+                ReadTxt.Clear();
                 SearchIDTxt.IsEnabled = true;
+
+                MessageBox.Show("Document Successfully Deleted", "TV-Series", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
             // Refreshes the number of tv-serie documents when one is removed.
@@ -140,17 +142,24 @@ namespace TvSeries
         {
             // Clears all boxes in case of mistake etc..
 
-            SearchIDTxt.Text = "";
+            SearchIDTxt.Clear();
             SearchIDTxt.IsEnabled = true;
-            ReadTxt.Text = "";
-            TitleText.Text = "";
-            CreatorTxt.Text = "";
-            StarsTxt.Text = "";
-            SeasonsTxt.Text = "";
-            MPARatingTxt.Text = "";
-            IMBDRatingTxt.Text = "";
+            ReadTxt.Clear();
+            TitleText.Clear();
+            CreatorTxt.Clear();
+            StarsTxt.Clear();
+            SeasonsTxt.Clear();
+            MPARatingTxt.Clear();
+            IMBDRatingTxt.Clear();
 
-            MessageBox.Show("All Boxes Have Been Reset", "Tv-Series");
+            MessageBox.Show("All Fields Have Been Reset", "TV-Series", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Gives a brief run down on how to operate the program (if necessary)
+
+            MessageBox.Show("To Search A Document - Enter ID From tv-series Database Document Into Search Bar And Click Search.\n\nYou Can Then Edit The Document And Click Update Or Delete.", "HELP", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
